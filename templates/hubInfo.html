@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+
+<link href="{{ url_for(".static", filename="css/dc.css") }}" rel="stylesheet">
+
+<div class="container pt">
+		<div class="row mt centered">
+			<div class="col-lg-12">
+				<h3>The Zepto Hub</h3>
+				<hr>
+				<p>The Zepto Hub is ....</a>.</p>
+
+			</div>
+		</div>
+		<div class="row mt centered">
+			<div class="col-lg-4">
+				<a class="zoom green" href="node_info.html"><img class="img-responsive" src="assets/img/portfolio/port01.jpg" alt="" /></a>
+				<h3>Feature 1</h3>
+				<p> XXX</p>
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="bridge_info.html"><img class="img-responsive" src="assets/img/portfolio/port02.jpg" alt="" /></a>
+				<h3>Feature 2</h3>
+				<p>The Hub collects data from the nodes</p>
+				<p>It can be configured to either store the sensor data in its internal storage, or send it on to a remote server or cloud system</p>
+
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="engine_info.html"><img class="img-responsive" src="assets/img/portfolio/port03.jpg" alt="" /></a>
+				<h3>Feature 3</h3>
+				<p>XXXXX</p>
+				<p></p>
+
+			</div>
+		</div><!-- /row -->
+		<div class="row mt centered">
+
+		</div><!-- /row -->
+</div><!-- /container -->
+
+
+
+
+{% endblock %}

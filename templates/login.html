@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% block content %}
+
+<link href="{{ url_for(".static", filename="css/dc.css") }}" rel="stylesheet">
+
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<h3> Login</h3>
+			<br>
+			<div class="col-lg-8">
+			<form role="form">
+			  <div class="form-group">
+			  	<input type="userName" class="form-control" id="NameInputUsername" placeholder="Your Username">
+			    <br>
+			  </div>
+			  <div class="form-group">
+			    <input type="password" class="form-control" id="password" placeholder="Your Password">
+			    <br>
+			  </div>
+			  <button type="login" class="btn btn-success" href="{{ url_for(".engine") }}">Login</button>
+			  <br><br>
+			  <a href="{{ url_for(".engine") }}" >Engine Demo</a>
+			</form>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<h3>Sign Up</h3>
+			<br>
+			Are you a new user of the Zepto Engine?
+			<br>
+			<br>
+			Please sign up here:
+			<br>
+			<br>
+			<button type="login" class="btn btn-success" href="signup.html">Sign Up</button>
+		</div>
+	</div>
+</div><!-- /container -->
+
+
+{% endblock %}

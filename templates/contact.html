@@ -1,0 +1,42 @@
+{% extends "main.html" %}
+{% block content %}
+
+<link href="{{ url_for(".static", filename="css/dc.css") }}" rel="stylesheet">
+
+
+
+<!-- +++++ Contact Section +++++ -->
+
+<div class="container">
+	<div class="row mt">
+		<div class="col-lg-8 col-lg-offset-2 centered">
+			<h3>CONTACT US</h3>
+			<hr>
+			<p>If you are interested in trying our products or have some questions, please dont hesitate to contact us</p>
+			<br>
+		</div>
+	</div>
+	<div class="row mt">
+		<div class="col-lg-8 col-lg-offset-2">
+			<form role="form">
+			  <div class="form-group">
+			    <input type="name" class="form-control" id="NameInputEmail1" placeholder="Your Name">
+			    <br>
+			  </div>
+			  <div class="form-group">
+			    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your email">
+			    <br>
+			  </div>
+			  <div class="form-group">
+			    <input type="email" class="form-control" id="subjectEmail1" placeholder="Subject of enquiry">
+			    <br>
+			  </div>
+			  <textarea class="form-control" rows="6" placeholder="Enter your message here"></textarea>
+			    <br>
+			  <button type="submit" class="btn btn-success">Send</button>
+			</form>
+		</div>
+	</div><!-- /row -->
+</div><!-- /container -->
+
+{% endblock %}

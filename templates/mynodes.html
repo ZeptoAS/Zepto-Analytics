@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link href="{{ url_for(".static", filename="css/dc.css") }}" rel="stylesheet">
+
+
+<div id="dashboard">
+
+<button>Add Node</div><br>
+	<div class="box mynodes">
+        <div class="box-header">
+        	<span>Status</span>
+        </div>
+        <div class="box-content">
+        	<h5>Node 1 - Status (Green/Red)</h5>
+        </div>
+    </div>
+
+	<div class="box mynodes">
+        <div class="box-header">
+        	<span>A table</span>
+        </div>
+        <div class="box-content">
+        <h5> Al page in which you can monitor the status of each node and configure them. </h5>
+			<table class="table table-hover dc-data-table" id="dataTable">
+				<thead>
+					<tr class='header'>
+						<th>X-Data</th>
+						<th>Y-Data</th>
+					</tr>
+			   </thead>
+		   </table>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ url_for(".static", filename="js/d3.js") }}"></script>
+<script src="{{ url_for(".static", filename="js/crossfilter.js") }}"></script>
+<script src="{{ url_for(".static", filename="js/dc.js") }}"></script>
+<script src="{{ url_for(".static", filename="js/mynodes.js") }}"></script>
+
+
+
+
+{% endblock %}

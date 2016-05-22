@@ -1,0 +1,78 @@
+{% extends "main.html" %}
+{% block content %}
+
+<link href="{{ url_for(".static", filename="css/dc.css") }}" rel="stylesheet">
+
+<div class="container pt">
+		<div class="row mt centered">
+			<div class="col-lg-12">
+				<h3>Products</h3>
+				<hr>
+				<p>The Zepto Analytics system is built up of three components, the Node, Hub and Engine.</a>.</p>
+
+			</div>
+		</div>
+		<div class="row mt centered">
+			<div class="col-lg-4">
+				<a class="zoom green" href="{{ url_for(".productsNode") }}"><img class="img-responsive" src="assets/img/portfolio/port01.jpg" alt="" /></a>
+				<h3>Node</h3>
+				<p> Nodes are small low power wireless units that collect data from a range of sensors</p>
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="{{ url_for(".productsHub") }}"><img class="img-responsive" src="assets/img/portfolio/port02.jpg" alt="" /></a>
+				<h3>Hub</h3>
+				<p>The Hub collects data from the nodes</p>
+				<p>It can be configured to either store the sensor data in its internal storage, or send it on to a remote server or cloud system</p>
+
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="{{ url_for(".productsEngine") }}"><img class="img-responsive" src="assets/img/portfolio/port03.jpg" alt="" /></a>
+				<h3>Engine</h3>
+				<p>The Engine lets you monitor and analyse the data coming from the nodes, any time, any where.</p>
+				<p>Try out a demo here: <a href="{{ url_for(".engine") }}" >Engine Demo</a></li></p>
+
+			</div>
+		</div><!-- /row -->
+		<div class="row mt centered">
+
+		</div><!-- /row -->
+</div><!-- /container -->
+
+
+<div id="ww">
+	<div class="container">
+		<br>
+		<h1> The Zepto Hub</h1>
+		<hr>
+		<li>Home Hub</li><p>Connects to your home router</p>
+		<li>Remote Hub</li><p>Connects to the telecom network</p>
+
+		<p> You can get with or without internal storage (32Gb sd card)</p>
+	<div>
+</div>
+<div id="">
+	<div class="container">
+		<br>
+		<h1> The Zepto Nodes </h1>
+		<hr>
+		<li>Energy Monitoring Node!</li>
+		<li>Climate Node! (Temperature, humidity osv..)</li>
+		<li>Accelerometer Node!</li>
+		<li>Voltage Node!</li>
+		<li>Current Node!</li>
+	</div>
+</div>
+<div>
+	<div class="container">
+		<br>
+		<h1> The Zepto Engine</h1>
+		<hr>
+		<p>A platform to monitor and control all your zepto nodes!</p>
+
+		<p>Either set it up to store data into the cloud, or access the data which is locally stored in the zepto hub or a combination!</p>
+
+
+	</div
+</div>
+
+{% endblock %}
