@@ -28,7 +28,7 @@
     <body>
     <div id="psdash">
     <div class="header">
-	     <div class="logo"><a href="{{ url_for(".index") }}" >
+	     <div class="logo"><a href="{{ url_for("public.index") }}" >
 	           <span class="app-name">Zepto <small>v0.1</small></span>
 	     </a></div>
 	     <div class="top-nav">
@@ -61,28 +61,28 @@
 			                    <div class="left-nav">
 			                        <ul class="menu">
 			                            <li{% if page == "engine" %}class="active"{% endif %}>
-			                            <a href="{{ url_for(".engine") }}" >
+			                            <a href="{{ url_for("engine.engine") }}" >
 			                            	<span class="glyphicon glyphicon-th"></span>
 			                                <span class="option-text">Dashboard</span>
 			                            </a></li>
 			                            <li {% if page == "analysis" %}class="active"{% endif %}>
-			                            	<a href="{{ url_for(".analysis") }}">
+			                            	<a href="{{ url_for("engine.analysis") }}">
 			                            	     <span class="glyphicon glyphicon-tasks"></span>
 			                            	     <span class="option-text">Analysis</span>
 			                            	</a>
 			                            </li>
 			                            <li{% if page == "mynodes" %}class="active"{% endif %}>
-			                            	<a href="{{ url_for(".mynodes") }}">
+			                            	<a href="{{ url_for("engine.mynodes") }}">
 			                            	    <span class="glyphicon glyphicon-transfer"></span>
 			                            	    <span class="option-text">My Nodes</span>
 			                            </a></li>
 			                            <li {% if page == "settings" %}class="active"{% endif %}>
-			                            	<a href="{{ url_for(".settings") }}">
+			                            	<a href="{{ url_for("engine.settings") }}">
 			                                	<span class="glyphicon glyphicon-hdd"></span>
 			                                	<span class="option-text">Settings</span>
 			                            </a></li>
 			                            <li {% if page == "logs" %}class="active"{% endif %}>
-			                            	<a href="{{ url_for(".logs") }}">
+			                            	<a href="{{ url_for("engine.logs") }}">
 			                                	<span class="glyphicon glyphicon-book"></span>
 			                                	<span class="option-text">Logs</span>
 			                            </a></li>

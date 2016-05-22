@@ -36,35 +36,35 @@
             <span class="icon-bar"></span>
           </button>
           <li{% if page == "index" %}class="active"{% endif %}>
-			<a class="navbar-brand" href="{{ url_for(".index") }}" >
+			<a class="navbar-brand" href="{{ url_for("public.index") }}" >
 			Zepto
 		  </a></li>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
 			<li{% if page == "products" %}class="active"{% endif %}>
-				<a href="{{ url_for(".products") }}">Products
+				<a href="{{ url_for("public.products") }}">Products
 	        </a></li>
 			<li{% if page == "applications" %}class="active"{% endif %}>
-				<a href="{{ url_for(".applications") }}">Applications
+				<a href="{{ url_for("public.applications") }}">Applications
 	        </a></li>
 	        <li{% if page == "contact" %}class="active"{% endif %}>
-				<a href="{{ url_for(".contact") }}">Contact Us
+				<a href="{{ url_for("public.contact") }}">Contact Us
 	        </a></li>
 	        <!--
 	        <li{% if page == "Company" %}class="active"{% endif %}>
-				<a href="{{ url_for(".company") }}">Company
+				<a href="{{ url_for("public.company") }}">Company
 	        </a></li>
 	        <li{% if page == "blog" %}class="active"{% endif %}>
-				<a href="{{ url_for(".blog") }}">Blog
+				<a href="{{ url_for("public.blog") }}">Blog
 	        </a></li>
             <li{% if page == "engine" %}class="active"{% endif %}>
-				<a href="{{ url_for(".engine") }}" >
+				<a href="{{ url_for("engine.engine") }}" >
 				<span class="option-text">Engine Demo</span>
 			</a></li>
 			-->
             <li{% if page == "login" %}class="active"{% endif %}>
-				<a href="{{ url_for(".login") }}" >
+				<a href="{{ url_for("public.login") }}" >
 				<span class="option-text">Login</span>
 			</a></li>
 
