@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
-'''The public module, including the homepage and user auth.'''
+'''The engine module'''
 
 from . import views
