@@ -37,7 +37,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="{{ url_for("engine.dashboard") }}" class="logo"><b>Zepto Analytics</b></a>
+            <a href="{{ url_for("public.dashboard") }}" class="logo"><b>Zepto Analytics</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -68,18 +68,23 @@
               	  <h5 class="centered">User Name</h5>
               	  	
                   <li class="mt">
-                      <a href="{{ url_for("engine.dashboard") }}">
+                      <a href="{{ url_for("public.dashboard") }}">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
                   <li class="mt">
-                      <a href="{{ url_for("engine.settings") }}">
+                      <a href="{{ url_for("public.settings") }}">
                           <i class="fa fa-dashboard"></i>
                           <span>Settings</span>
                       </a>
                   </li>             
-
+                  <li class="mt">
+                      <a href="{{ url_for("weather.index") }}">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Weather</span>
+                      </a>
+                  </li>    
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -106,9 +111,6 @@
       <footer class="site-footer">
           <div class="text-center">
               2016 Zepto AS
-              <a href="blank.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
           </div>
       </footer>
       <!--footer end-->
