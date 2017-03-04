@@ -49,6 +49,7 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="http://zepto-analytics.readthedocs.io">Docs</a></li>
                     <li><a class="logout" href="{{ url_for("public.login") }}">Logout</a></li>
             	</ul>
             </div>
@@ -65,14 +66,22 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="{{ url_for("engine.profile") }}"><img src="static/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Eirik Ramstad</h5>
+              	  <h5 class="centered"> User Name </h5>
               	  	
                   <li class="mt">
                       <a href="{{ url_for("public.dashboard") }}">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
-                  </li>            
+                  </li> 
+                  <!--
+                  <li class="mt">
+                      <a href="{{ url_for("engine.index") }}">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Engine</span>
+                      </a>
+                  </li>     
+                  -->                        
                   <li class="mt">
                       <a href="{{ url_for("weather.index") }}">
                           <i class="fa fa-dashboard"></i>
