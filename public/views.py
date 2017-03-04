@@ -8,8 +8,25 @@ blueprint = Blueprint('public', __name__, static_folder="../static")
 
 
 
-@blueprint.route("/")
+@blueprint.route("/", methods=['GET', 'POST'])
 def login():
+
+    config = configparser.ConfigParser()
+    config.read('config.cfg')
+
+    email = config.get("profile", "email")
+    password = config.get("profile", "password")
+
+    if request.method == 'POST':
+
+        inputemail = request.form['email']
+        inputpassword = request.form['password']
+
+        print(inputemail)
+
+        if(email == inputemail and password == inputpassword):
+            return render_template("public/dashboard.html")
+
     return render_template("public/login.html")
 
 
