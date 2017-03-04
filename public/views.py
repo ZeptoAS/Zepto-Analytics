@@ -2,7 +2,7 @@
 """Public section, including homepage."""
 
 from flask import (Blueprint, render_template, make_response, current_app, url_for, request)
-import ConfigParser
+import configparser
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
 
@@ -20,7 +20,7 @@ def dashboard():
 @blueprint.route("/settings")
 def settings():
     
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read('config.cfg')
     """
     config.add_section('Section1')

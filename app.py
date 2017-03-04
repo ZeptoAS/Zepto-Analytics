@@ -1,11 +1,12 @@
 from flask import Flask, render_template
 
-import public, engine, weather
+import public, engine, weather, nordpool
 
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(engine.views.blueprint)
     app.register_blueprint(weather.views.blueprint)
+    app.register_blueprint(nordpool.views.blueprint)
 
     return None
 

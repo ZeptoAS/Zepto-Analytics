@@ -1,0 +1,233 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h4 class="mb"><i class="fa fa-angle-right"></i> Weather</h4>
+
+<form class="form-inline" role="form">
+	<div class="form-group">
+		<label class="sr-only">Country</label>
+		<input type="text" class="form-control" id="country" placeholder="Enter Country">
+	</div>
+	<div class="form-group">
+		<label class="sr-only">City</label>
+		<input type="text" class="form-control" id="city" placeholder="Enter City">
+	</div>
+	<button type="submit" class="btn btn-theme">Get</button>
+</form>
+
+<div class="row mt">
+	<div class="col-lg-12">
+		<div class="white-panel">
+			<br>
+			<h3>{{ city }}</h3>
+
+			<br>
+		</div>
+	</div>
+</div>
+
+<div class="row mt">
+	<div class="col-lg-12">
+		<div class="content-panel">
+			<h4><i class="fa fa-angle-right"></i> Hourly Weather Data</h4>
+			<div class="panel-body text-center">
+				<canvas id="chart" width="600" height="200"></canvas>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="row mt">
+	<div class="col-md-4 col-sm-4 mb">
+		<div class="white-panel pn">
+			<div class="white-header">
+				<h5>Current Weather</h5>
+			</div>
+			<div class="row">
+                <p>Summary: {{ current.summary }}</p>    
+                <p>Wind Speed: {{ current.windSpeed }}</p>    
+                <p>Humidity: {{ current.humidity }}</p>    
+                <p>Dew Point: {{ current.dewPoint }}</p>    
+                <p>Ozone: {{ current.ozone }}</p>    
+                <p>Icon: {{ current.icon }}</p>    
+
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4 col-sm-4 mb">
+		<div class="white-panel pn">
+			<div class="white-header">
+				<h5>Current Temperature</h5>
+			</div>
+			<div class="centered">
+                <p>{{ current.temperature }}</p>    
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 mb">
+		
+		<div class="white-panel pn">
+			<div class="white-header">
+				<h5>Current Humidity</h5>
+			</div>
+			<div class="row">
+                <p>{{ current.humidity }}</p>    
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="tab-pane" id="chartjs">
+	<div class="row mt">
+		<div class="col-lg-6">
+			<div class="content-panel">
+				<h4><i class="fa fa-angle-right"></i> Doughnut</h4>
+				<div class="panel-body text-center">
+					<canvas id="doughnut" height="300" width="400"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="content-panel">
+				<h4><i class="fa fa-angle-right"></i> Line</h4>
+				<div class="panel-body text-center">
+					<canvas id="line" height="300" width="400"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mt">
+		<div class="col-lg-6">
+			<div class="content-panel">
+				<h4><i class="fa fa-angle-right"></i> Radar</h4>
+				<div class="panel-body text-center">
+					<canvas id="radar" height="300" width="400"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="content-panel">
+				<h4><i class="fa fa-angle-right"></i> Polar Area</h4>
+				<div class="panel-body text-center">
+					<canvas id="polarArea" height="300" width="400"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js'></script>
+<script>
+var ctx = document.getElementById("chart");
+
+var data = {
+   labels : [{% for item in hourly %}
+                  "{{item.time}}",
+              {% endfor %}],
+   datasets : [
+       {
+            label: "Temperature",
+            fill: false,
+            data : [
+            {% for item in hourly %} 
+                {{ item.temperature}},
+            {% endfor %}
+            ], 
+            backgroundColor: "rgba(153,255,255,0.4)",
+
+
+      },
+       {
+            label: "Humidity",
+            fill: false,
+            data : [
+            {% for item in hourly %} 
+                {{ item.humidity}},
+            {% endfor %}
+            ], 
+            backgroundColor: "rgba(153,255,255,0.4)",
+
+
+      },
+       {
+            label: "Wind Speed",
+            fill: false,
+            data : [
+            {% for item in hourly %} 
+                {{ item.windspeed}},
+            {% endfor %}
+            ], 
+            backgroundColor: "rgba(153,255,255,0.4)",
+
+
+      },  
+       {
+            label: "Percipation",
+            fill: false,
+            data : [
+            {% for item in hourly %} 
+                {{ item.precipIntensity}},
+            {% endfor %}
+            ], 
+            backgroundColor: "rgba(153,255,255,0.4)",
+
+
+      },   
+       {
+            label: "Pressure",
+            fill: false,
+            data : [
+            {% for item in hourly %} 
+                {{ item.pressure}},
+            {% endfor %}
+            ], 
+            backgroundColor: "rgba(153,255,255,0.4)",
+
+
+      },                       
+            ]
+    } 
+
+var chart = new Chart(ctx, {
+    
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    unit: 'hour',
+                    displayFormats: {
+                        quarter: 'MMM YYYY'
+                    }
+                }
+            }]
+
+        }
+    }    
+});
+ 
+
+function addCommas(nStr)
+{
+  nStr += '';
+  x = nStr.split('.');
+  x1 = x[0];
+  x2 = x.length > 1 ? '.' + x[1] : '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  }
+  return x1 + x2;
+}
+
+
+</script>
+
+{% endblock %}

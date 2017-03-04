@@ -2,14 +2,15 @@
 """Weather section"""
 
 from flask import (Blueprint, render_template, make_response, current_app, url_for, request, jsonify)
-import ConfigParser
+import configparser
 import datetime
+from pprint import pprint
 
 blueprint = Blueprint('weather', __name__, static_folder="../static")
 
 from forecastiopy import *
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.read('config.cfg')
 
 apikey = config.get("forecastio", "apikey")
@@ -28,21 +29,16 @@ def index():
                                 latitude=city[0], longitude=city[1])
 
     current = get_currently(fio)
-    #minutely = get_minutely(fio)
-    #hourly = get_hourly(fio)
-    #daily = get_daily(fio)
-    
-    print current.get().keys()
-    
+    hourly = get_hourly_temp(fio)
+    #pprint(hourly)
     templateData = {
     'city': city[2],
     'current': current,
     #'minutely': minutely,
-    #'hourly': hourly,
+    'hourly': hourly,
     #'daily': daily
     }
     return render_template("weather/weather.html", **templateData)	
-
 
 def get_currently(fio):
     
@@ -60,7 +56,7 @@ def get_currently(fio):
         """
         return currently
     else:
-        print 'No Currently data'
+        print('No Currently data')
 
 
 
@@ -86,7 +82,7 @@ def get_minutely(fio):
         """
         return minutely
     else:
-        print 'No Minutely data'
+        print('No Minutely data')
 
 def get_hourly(fio):
 
@@ -110,7 +106,7 @@ def get_hourly(fio):
 	    """
 	    return hourly
 	else:
-	    print 'No Hourly data'
+	    print('No Hourly data')
 
 def get_daily(fio):
 
@@ -134,7 +130,7 @@ def get_daily(fio):
 	    """
 	    return daily
 	else:
-	    print 'No Daily data'
+	    print('No Daily data')
 
 def get_flags(fio):
 
@@ -143,12 +139,36 @@ def get_flags(fio):
 	    flags = FIOFlags.FIOFlags(fio)
 	    pprint(vars(flags))
 	    # Get units directly
-	    print flags.units
+	    print(flags.units)
 	else:
-	    print 'No Flags data'
-"""
-def get_time(unix_time):
-	time = datetime.datetime.fromtimestamp(int(unix_time).strftime('%Y-%m-%d %H:%M:%S')
-    return time
+	    print('No Flags data')
 
-"""
+def get_hourly_temp(fio): 
+    data = []
+    if fio.has_hourly() is True:
+        hourly = FIOHourly.FIOHourly(fio)
+        for hour in range(0, hourly.hours()):
+            for item in hourly.get_hour(hour).keys():
+                if item == "temperature":
+                    temperature = hourly.get_hour(hour)[item]
+                if item == "humidity":
+                    humidity = hourly.get_hour(hour)[item]
+                if item == "pressure":
+                    pressure = hourly.get_hour(hour)[item]
+                if item == "windSpeed":
+                    windspeed = hourly.get_hour(hour)[item]
+                if item == "precipIntensity":
+                    precipIntensity = hourly.get_hour(hour)[item]
+                if item == "time":
+                    time = get_time(hourly.get_hour(hour)[item])
+            item = dict(time=time, temperature=temperature, humidity=humidity, pressure=pressure, windspeed=windspeed, precipIntensity=precipIntensity)
+            data.append(item)
+        #print data
+    else:
+        print('No Hourly data')
+    return data
+
+def get_time(unix_time):
+    time = datetime.datetime.fromtimestamp(int(unix_time))
+    #.strftime('%Y-%m-%d %H:%M:%S'))
+    return time
