@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index"],envversion:51,filenames:["index.rst"],objects:{},objnames:{},objtypes:{},terms:{fill:0,index:0,inform:0,interest:0,lot:0,modul:0,page:0,search:0,soon:0,thi:0},titles:["Welcome to Zepto Analytics&#8217;s documentation!"],titleterms:{analyt:0,document:0,indic:0,tabl:0,welcom:0,zepto:0}})

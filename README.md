@@ -8,3 +8,5 @@ Each add on features is seperated in its own designated blueprint. So far the fo
 
 - Engine - Collects and displays data from Zepto Sensors
 - Weather - Collects displays data from forecastio
+- Nordpool - Pulls energy data from nordpool
+
