@@ -1,5 +1,7 @@
 # Zepto Analytics
 
+## How To Get Started
+
 Currently Zepto Analytics is a work in progress, so don't expect much. 
 
 It is aiming to become an application which helps you easily navigate and analyse data from numerous types of databases. 
